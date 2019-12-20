@@ -1,0 +1,30 @@
+{
+  "name": "slack-reaction-counter",
+  "version": "0.1.0",
+  "description": "count slack reactions",
+  "main": "main/app.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "local": "source local.env && npx ts-node src/main.ts",
+    "build": "npx tsc",
+    "clear": "find . -name '*.js' -not -path './node_modules/**' | xargs rm",
+    "deploy": "npm run build && gcloud app deploy ./app.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YoshiyukiKato/slack-reaction-counter"
+  },
+  "author": "Yoshiyuki Kato",
+  "license": "MIT",
+  "dependencies": {
+    "@slack/events-api": "^2.3.0",
+    "@slack/web-api": "^5.1.0",
+    "express": "^4.17.1",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "ts-node": "^8.4.1",
+    "typescript": "3.3.3"
+  }
+}
