@@ -10,7 +10,6 @@ const SLACK_SIGNING_SECRET = process.env.SLACK_SIGNING_SECRET || "";
 const app = express();
 const slackEvents = createEventAdapter(SLACK_SIGNING_SECRET);
 slackEvents.on("app_mention", async(event:any) => {
-  console.log(event);
   try {
     await summaryConversationReactions(SLACK_ACCESS_TOKEN, event.channel, DATE20190101, DATE20191231);
   } catch(err){
